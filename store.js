@@ -1,7 +1,7 @@
 class Store {
-	constructor(reducer, initialState) {
-		this.state = initialState;
+	constructor(reducer, initialState = {}) {
 		this.reducer = reducer;
+		this.state = initialState;
 		this.listeners = [];
 	}
 
@@ -22,3 +22,4 @@ class Store {
 export function createStore(reducer, initialState) {
 	return new Store(reducer, initialState);
 }
+

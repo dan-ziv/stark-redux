@@ -1,26 +1,25 @@
 import {createStore} from './store.js';
 import {reducer} from './reducer.js';
-import {addAction, markAsCompleteAction, removeAllAction} from './actions.js';
+import {addTodoAction, markCompleteAction, removeAllAction} from './actions.js';
 
 const initialState = {
-	todos: [],
-	index: 1
-};
+	todos: []
+}
 
 const store = createStore(reducer, initialState);
 
-console.log(store.getState());
+console.log('Initial state', store.getState());
 
-store.dispatch(addAction);
-store.dispatch(addAction);
-store.dispatch(addAction);
+store.dispatch(addTodoAction('go to the supermarket'));
+store.dispatch(addTodoAction('pick up my car from the garage'));
 
-console.log(store.getState());
+console.log('After adding some todos', store.getState());
 
-store.dispatch(markAsCompleteAction)
+store.dispatch(markCompleteAction(1));
 
-console.log(store.getState())
+console.log('After mark as complete', store.getState());
 
-store.dispatch(removeAllAction)
+store.dispatch(removeAllAction);
 
-console.log(store.getState())
+console.log('After removing all', store.getState());
+

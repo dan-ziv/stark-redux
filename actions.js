@@ -1,15 +1,15 @@
-export const addAction = {
+export const addTodoAction = task => ({
 	type: 'ADD_TODO',
 	todo: {
-		task: 'Go to the supermarket',
+		task,
 		completed: false
 	}
-};
+});
 
-export const markAsCompleteAction = {
+export const markCompleteAction = id => ({
 	type: 'MARK_COMPLETE',
-	id: 1
-};
+	id
+});
 
 export const removeAllAction = {
 	type: 'REMOVE_ALL'
